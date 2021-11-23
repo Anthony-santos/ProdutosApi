@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Thony\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Thony\\.nuget\\packages"
+    ]
+  }
+}
