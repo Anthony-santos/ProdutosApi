@@ -27,3 +27,6 @@ C:\Users\Thony\Documents\Dev\ProdutosApi\obj\Debug\net5.0\ProdutosApi.dll
 C:\Users\Thony\Documents\Dev\ProdutosApi\obj\Debug\net5.0\ref\ProdutosApi.dll
 C:\Users\Thony\Documents\Dev\ProdutosApi\obj\Debug\net5.0\ProdutosApi.pdb
 C:\Users\Thony\Documents\Dev\ProdutosApi\obj\Debug\net5.0\ProdutosApi.genruntimeconfig.cache
+C:\Users\Thony\Documents\Dev\ProdutosApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Thony\Documents\Dev\ProdutosApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Thony\Documents\Dev\ProdutosApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
