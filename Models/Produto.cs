@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace ProdutosApi.Model
+namespace ProdutosApi.Models
 {
-    public class Produtos
+    public class Produto
     {
         [Key]
         public int Id { set; get; }

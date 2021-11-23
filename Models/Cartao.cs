@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace ProdutosApi.Model
+namespace ProdutosApi.Models
 {
     public class Cartao
     {

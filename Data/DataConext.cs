@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ProdutosApi.Model;
+using ProdutosApi.Models;
 
 namespace ProdutosApi.Data
 {
@@ -9,7 +9,7 @@ namespace ProdutosApi.Data
         {
 
         }
-        public DbSet<Produtos> Produtos { set; get; }
+        public DbSet<Produto> Produtos { set; get; }
         public DbSet<Compra> Categories { set; get; }
         public DbSet<Cartao> Cartoes { set; get; }
     }
