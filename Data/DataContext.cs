@@ -10,7 +10,7 @@ namespace ProdutosApi.Data
 
         }
         public DbSet<Produto> Produtos { set; get; }
-        public DbSet<Compra> Categories { set; get; }
+        public DbSet<Compra> Compras { set; get; }
         public DbSet<Cartao> Cartoes { set; get; }
     }
 }
