@@ -9,14 +9,14 @@ namespace testeef.Controllers
 {
     [ApiController]
     [Route("api/produtos")]
-    public class CategoryController : ControllerBase
+    public class ProdutoControler : ControllerBase
     {
         [HttpGet]
         [Route("")]
         public async Task<ActionResult<List<Produto>>> Get([FromServices] DataContext context)
         {
             var produtos = await context.Produtos.ToListAsync();
-            return produtos;
+            return Ok(produtos);
         }
 
         [HttpGet]
@@ -26,22 +26,35 @@ namespace testeef.Controllers
             var produto = await context.Produtos
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == id);
-            return produto;
+            return Ok(produto);
+        }
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<ActionResult<Produto>> Delete([FromServices] DataContext context, int id)
+        {
+            var produto = await context.Produtos
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            context.Produtos.Remove(produto);
+            context.SaveChanges();
+            return Ok("Produto excluído com sucesso");
         }
         [HttpPost]
         [Route("")]
-        public async Task<ActionResult<string>> Post([FromServices] DataContext context, [FromBody] Produto model)
+        public async Task<ActionResult<Produto>> Post([FromServices] DataContext context, [FromBody] Produto model)
         {
             if (ModelState.IsValid)
             {
                 context.Produtos.Add(model);
                 await context.SaveChangesAsync();
-                return "Produto Cadastrado";
+                return Ok();
             }
             else
             {
-                return BadRequest(ModelState);
+                return StatusCode(412, "Produto Cadastrado");
             }
         }
+
     }
 }
