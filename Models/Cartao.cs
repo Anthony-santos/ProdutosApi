@@ -13,14 +13,14 @@ namespace ProdutosApi.Models
         public string Titular { set; get; }
 
         [Required(ErrorMessage = "Este campo é obrigatorio")]
-        [StringLength(16, ErrorMessage = "Esta campo deve conter 16 digitos")]
+        [CreditCard(ErrorMessage = "Cartão de crédito inválido")]
         public string Numero { set; get; }
 
         [Required(ErrorMessage = "Este campo é obrigatorio")]
         public string Data_Expiracao { set; get; }
 
         [Required(ErrorMessage = "Este campo é obrigatorio")]
-        public string bandeira { set; get; }
+        public string Bandeira { set; get; }
 
         [Required(ErrorMessage = "Este campo é obrigatorio")]
         public string Cvv { set; get; }
