@@ -16,19 +16,26 @@ namespace testeef.Controllers
         [Route("")]
         public async Task<ActionResult<Compra>> Post([FromServices] DataContext context, [FromBody] Compra model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var produto = await context.Produtos.FirstOrDefaultAsync(x => x.Id == model.Produto_Id);
-                produto.Qtde_Estoque -= model.Qtde_Comprada;
-                produto.Valor_Ultima_venda = produto.Valor_Unitario * model.Qtde_Comprada;
-                produto.Ultima_Venda = DateTime.Now;
+                if (ModelState.IsValid)
+                {
+                    var produto = await context.Produtos.FirstOrDefaultAsync(x => x.Id == model.Produto_Id);
+                    produto.Qtde_Estoque -= model.Qtde_Comprada;
+                    produto.Valor_Ultima_venda = produto.Valor_Unitario * model.Qtde_Comprada;
+                    produto.Ultima_Venda = DateTime.Now;
 
-                await context.SaveChangesAsync();
-                return StatusCode(200, "Venda Realizada");
+                    await context.SaveChangesAsync();
+                    return StatusCode(200, "Venda Realizada");
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
             }
-            else
+            catch
             {
-                return StatusCode(412, ModelState);
+                return BadRequest();
             }
         }
     }
