@@ -18,9 +18,11 @@ namespace testeef.Controllers
         {
             if (ModelState.IsValid)
             {
-                context.Compras.Add(model);
-                if (!CartaoIsValid(model.Cartao))
-                    return StatusCode(412, "Cartao não é válido");
+                var produto = await context.Produtos.FirstOrDefaultAsync(x => x.Id == model.Produto_Id);
+                produto.Qtde_Estoque -= model.Qtde_Comprada;
+                produto.Valor_Ultima_venda = produto.Valor_Unitario * model.Qtde_Comprada;
+                produto.Ultima_Venda = DateTime.Now;
+
                 await context.SaveChangesAsync();
                 return StatusCode(200, "Venda Realizada");
             }
@@ -28,11 +30,6 @@ namespace testeef.Controllers
             {
                 return StatusCode(412, ModelState);
             }
-        }
-
-        public bool CartaoIsValid(Cartao cartao)
-        {
-            return false;
         }
     }
 }

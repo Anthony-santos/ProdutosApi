@@ -48,7 +48,7 @@ namespace testeef.Controllers
             {
                 context.Produtos.Add(model);
                 await context.SaveChangesAsync();
-                return Ok();
+                return Ok("Produto Cadastrado");
             }
             else
             {
